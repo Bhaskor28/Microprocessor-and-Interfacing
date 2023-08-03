@@ -1,0 +1,25 @@
+include 'emu8086.inc'
+.stack 100h
+.data
+.code
+
+    main proc 
+        
+        mov ax,5
+        mov bx,3
+        cmp ax,bx
+        JG Label1  ;Conditional jump
+        mov cx,bx ; i store the biggest value to cx register 
+        JMP RETURN   ;unconditional jump
+        
+        
+        label1:
+        mov cx,ax  ; I store the biggest value to cx register
+        
+        
+        RETURN:
+        mov ah,4CH
+        int 21h
+        
+        main endp
+    end main
